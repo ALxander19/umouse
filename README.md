@@ -3,7 +3,7 @@ Micro mouse robot with a maze
 
 Put the maze folder in the following directory:
 
-/home/<user>/.gazebo/models/
+/home/user/.gazebo/models/
 
 To see the hidden directory (.gazebo) press Ctrl + H
 
