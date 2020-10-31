@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<robot name="umouse" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <gazebo reference="right_wheel">
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo reference="left_wheel">
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  
+  <!--gazebo reference="fcastor_wheel">
+    <material>Gazebo/Black</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="bcastor_wheel">
+    <material>Gazebo/Black</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo-->
+
+  <gazebo reference="fcastor_wheel">
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo reference="bcastor_wheel">
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50</updateRate>
+      <leftJoint>wheel_left_joint</leftJoint>
+      <rightJoint>wheel_right_joint</rightJoint>
+      <wheelSeparation>0.064</wheelSeparation>
+      <wheelDiameter>0.032</wheelDiameter>
+      <wheelAcceleration>0.1</wheelAcceleration>
+      <wheelTorque>20</wheelTorque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <publishWheelTF>true</publishWheelTF>
+      <publishOdom>true</publishOdom>
+      <robotBaseFrame>base</robotBaseFrame>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+
+    </plugin>
+  </gazebo>
+
+</robot>
